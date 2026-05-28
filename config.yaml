@@ -1,0 +1,31 @@
+# ============================================================
+# 多视角决策辅助系统 —— Agent 路由配置
+# ------------------------------------------------------------
+# preset 值对应 .env 里的 {NAME}_API_KEY / {NAME}_BASE_URL /
+# {NAME}_MODEL / {NAME}_PROTOCOL 四件套。
+#
+# 只有一种 API 时：把所有 agent 的 preset 全设成同一个即可。
+# 想给某个 agent 单独换模型：在 .env 里加一组新的，然后改这里的 preset 名。
+# temperature 是可选的 LangChain 运行参数，留给本文件控制。
+# ============================================================
+
+agents:
+  clarifier:                       # 主 agent · 反问澄清（轻量、JSON 输出，用 Haiku 性价比高）
+    preset: CLAUDE_HAIKU
+    temperature: 0.3
+
+  historian:                       # 子 agent · 以史为鉴（需要广博知识，Sonnet）
+    preset: CLAUDE_SONNET
+    temperature: 0.6
+
+  diviner:                         # 子 agent · 周易/术数（推理最深，Opus）
+    preset: CLAUDE_OPUS
+    temperature: 0.8
+
+  modernist:                       # 子 agent · 现代方法论（结构化分析，Sonnet）
+    preset: CLAUDE_SONNET
+    temperature: 0.4
+
+  synthesizer:                     # 主 agent · 三方汇总（综合判断，Opus）
+    preset: CLAUDE_OPUS
+    temperature: 0.3

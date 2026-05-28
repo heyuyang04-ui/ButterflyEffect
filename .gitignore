@@ -1,0 +1,28 @@
+# 环境密钥（任何情况下都不能提交）
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Gradio 缓存
+.gradio/
+flagged/
+
+# 系统
+.DS_Store
+Thumbs.db
